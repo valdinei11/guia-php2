@@ -29,16 +29,16 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="start">
+				<section id="#/start">
 					<h2>Controllers 2</h2>
 					<h3>PHP</h3>
 					<img data-src="https://www.symphony-solutions.eu/wp-content/uploads/2017/03/PHP-360x250.png" alt="PHP Logo">
 				</section>
 				<section>
-					<section>
+					<section id="#/superglobals">
 						<h2>SUPERGLOBAIS</h2>
 					</section>
-					<section>
+					<section id="#/get-post">
 						<h2>GET e POST</h2>
 						<pre><code data-trim>
 							<form action="get-post.php" method="get">
@@ -47,21 +47,244 @@
 							</form>
 						</code></pre>
 					</section>
-					<section>
+					<section id="#/session">
 						<h2>SESSION</h2>
 						<pre><code data-trim>
-							
+							session_start();
+							$_SESSION['user'] = $_POST['user'];
+							$_SESSION['senha'] = $_POST['pswd'];
 						</code></pre>
 					</section>
 				</section>
 				<section>
-					<h2>Composer & Packagist</h2>
-					<img data-src="https://upload.wikimedia.org/wikipedia/commons/2/26/Logo-composer-transparent.png" alt="Composer Logo">
+					<section>
+						<h2>MVC: Controllers</h2>
+						<ul>
+							<li>Padrão de Arquitetura</li>
+							<li>Requisições</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://raw.githubusercontent.com/diegoeis/tableless-static-images/master/2015/02/laravel-introducao.jpg" alt="MVC">
+					</section>
 				</section>
-				<section id="links">
-					<h1>Links Úteis</h1>
-					<a href="http://br.phptherightway.com/">PHP: The Right Way</a><br>
-					<a href="https://github.com/php-fig/fig-standards">FIG PHP Standards</a>
+				<section>
+					<section id="#/poo/1">
+						<h2>Orientação a Objetos</h2>
+					</section>
+					<section id="#/poo/2">
+						<ul>
+							<li>Paradigma de programação</li>
+							<li>PHP, Java, C#, etc.</li>
+							<li>Reaproveitamento de código</li>
+							<li>Representação mais próxima do mundo real</li>
+						</ul>
+					</section>
+					<section id="#/poo/3">
+						<img src="https://arquivo.devmedia.com.br/artigos/henrique_gasparotto/4_pilares_oo/image001.png" alt="Estruturada x Orientado a Objetos">
+					</section>
+					<section id="#/poo/4">
+						<h2>Classes e Objetos</h2>
+						<ul>
+							<li>Atributos</li>
+							<li>Métodos</li>
+							<li>Objetos</li>
+						</ul>
+					</section>
+					<section id="#/poo/5">
+						<h2>Exemplo</h2>
+						<pre><code data-trim>
+							class Humano {
+								function __construct($nome, $anoNasc) {
+									$this->nome = $nome;
+									$this->anoNasc = $anoNasc;
+								}
+
+								function ousar() {
+									return "Com {$this->nome} é Ousadia e Alegria";
+								}
+							}
+
+							$humano = new Humano('Vaineymar', 2018);
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section id="#/pilares/1">
+						<h2>Pilares da OO</h2>
+					</section>
+					<section id="#/pilares/2/">
+						<h2>Abstração</h2>
+						<ul>
+							<li>Identidade</li>
+							<li>Propriedades</li>
+							<li>Ações</li>
+						</ul>
+					</section>
+					<section id="#/pilares/3/1">
+						<h2>Encapsulamento</h2>
+						<ul>
+							<li>Segurança</li>
+							<li>Getters e Setters</li>
+						</ul>
+					</section>
+					<section id="#/pilares/3/2">
+						<h3>Visibilidade</h3>
+						<pre><code data-trim>
+							class JogadorDeFutebol {
+							  public $nome;
+							  private $numeroCamisa;
+
+							  public function __construct($nome, $numeroCamisa) {
+							    $this->nome = $nome;
+							    $this->numeroCamisa = $numeroCamisa;
+							  }
+							  public function ousar() {
+							    return "É sabido que {$this->nome} conhece o time da Bélgica";
+							  }
+							}
+							$humano = new Humano('Dante', 4);
+						</code></pre>
+					</section>
+					<section id="#/pilares/3/3">
+						<h3>Getters e Setters</h3>
+						<pre><code data-trim>
+							class Humano {
+								private $nome;
+
+								public function getNome() {
+									return $this->nome;
+								}
+								public function setNome($nome) {
+									$this->nome = $nome;
+								}
+							}
+							$humano = new Humano();
+							setNome('Lukaku', 9);
+						</code></pre>
+					</section>
+					<section id="#/pilares/4">
+						<h2>Herança</h2>
+						<!-- <img src="img/oop.png" alt="Exemplo de OO"> -->
+					</section>
+					<section id="#/pilares/5">
+						<h2>Polimorfismo</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Mais um pouco sobre Objetos</h2>
+					</section>
+					<section>
+						<h2>Métodos Estáticos</h2>
+						<pre><code data-trim>
+							class Humano {
+								public static $especie = "Homo Sapiens";
+
+								public function gritar() {
+									return "AAAAAAAAAAAAAAAAAAAAAA";
+								}
+							}
+							Humano::$especie;
+							Humano::gritar();
+						</code></pre>
+					</section>
+					<section>
+						<h2>Métodos Estáticos</h2>
+						<ul>
+							<li>:: (dois pontos duplo)</li>
+							<li>OBS: Warning ou Erro</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Métodos/Classes Abstratos</h2>
+						<ul>
+							<li>Não podem ser instanciadas</li>
+							<li>Método abstrato => Classe Abstrata</li>
+							<li>Assinaturas de Métodos</li>
+							<li>Definição de métodos abstratos</li>
+						</ul>
+					</section>
+					<section>
+						<pre><code data-trim>
+							abstract class Test {
+								abstract public function getHello();
+							}
+							class Testando extends Test {
+								private $hello;
+								public function getHello() {
+									return $this->hello;
+								}
+								public function setHello($hello) {
+									$this->hello = $hello;
+								}
+							}
+							$test = new Testando;
+						</code></pre>
+					</section>
+					<section>
+						<h2>Namespaces</h2>
+						<ul>
+							<li>Case-Insensitive</li>
+							<li>PSR</li>
+							<li>Final Class/Function</li>
+						</ul>
+						<pre><code data-trim>
+							namespace App\Controllers;
+							
+							class HomeController {
+								public function __construct() {
+									echo "Hey";
+								}
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>MicroFramework</h2>
+						<ul>
+							<li><a href="https://www.youtube.com/playlist?list=PLSYIyzca1f9wGynWlC-SH2lVBkE8S81A0">TJG Web - Playlist</a></li>
+							<!-- <li><a href="https://github.com/valdinei11/guero">Guero MicroFramework</a></li> -->
+						</ul>
+					</section>
+					<section id="#/composer">
+						<h2>Composer & Packagist</h2>
+						<img data-src="https://upload.wikimedia.org/wikipedia/commons/2/26/Logo-composer-transparent.png" alt="Composer Logo">
+					</section>
+				</section>
+				<section>
+					<h2>Atividade</h2>
+					<ul>
+						<li>(Re)estudar a Playlist (até aula 14)</li>
+						<li>Passar views criadas nas capacitações de Views para o Framework.</li>
+						<li>Arquivos .phtml</li>
+					</ul>
+				</section>
+				<section>
+					<h2>+</h2>
+					<ul>
+						<li>Traits</li>
+						<li>Iteração de Objetos</li>
+					</ul>
+				</section>
+				<section>
+					<section id="#/links" data-background-image="https://2.bp.blogspot.com/-NRKD75g45Ls/UO8f8o-BD6I/AAAAAAAAFio/ou2nE7VSxy4/s1600/captain-america.gif">
+						<div style="background-color: rgba(17, 17, 17, 0.5); padding: 15px; border-radius: 4px;">
+							<h2>Referências</h2>
+							<a href="http://br.phptherightway.com/">PHP: The Right Way</a><br>
+							<a href="https://secure.php.net/manual/pt_BR/index.php">PHP Manual</a><br>
+							<a href="https://tableless.com.br/mvc-afinal-e-o-que/">Tableless - MVC</a><br>
+							<a href="https://www.devmedia.com.br/os-4-pilares-da-programacao-orientada-a-objetos/9264">DevMedia - POO: Os 4 Pilares</a><br>
+							<a href="https://medium.com/emanuelg-blog/tagged/php">Emanuel - Artigos POO</a>
+						</div>
+					</section>
+					<section>
+						<h2>Mais Links</h2>
+						<a href="https://github.com/php-fig/fig-standards">FIG PHP Standards</a><br>
+						<a href="https://github.com/hakimel/reveal.js">Reveal.js Presentations</a><br>
+						<a href="https://www.cursoemvideo.com/">Curso em Vídeo</a>
+					</section>
 				</section>
 			</div>
 		</div>
@@ -73,6 +296,8 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                progress: true,
+                history: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
